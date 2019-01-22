@@ -49,12 +49,12 @@
         </v-window-item>
 
         <!-- Step 2 -->
-        <v-window-item :value="2"  class="pa-3">
+        <v-window-item :value="2" class="pa-3">
           <v-card>
             <v-card-title primary-title>
               <div class="pa-3 text-xs-center">
                 <h3
-                  class="title font-weight-light mb-2"
+                   class="headline mb-2"
                 >For projects seeking under $100 million in Commonwealth funding</h3>
               </div>
             </v-card-title>
@@ -66,25 +66,74 @@
         <v-window-item :value="3" class="pa-3">
           <v-card>
             <v-card-title primary-title>
-              <div class="pa-3 text-xs-center">
-                <h3
-                  class="title font-weight-light mb-2"
-                >Summary</h3>
+              <div class="text-xs-center">
+                <h2  class="headline">Deliverability Asessment</h2>
               </div>
             </v-card-title>
-            <v-card-text></v-card-text>
+            <v-card-text>
+              <v-stepper v-model="assp" non-linear vertical>
+                <v-stepper-step
+                  :complete="assp > 1"
+                  step="1"
+                >Is the risk being managed appropriately?</v-stepper-step>
+                <v-stepper-content step="1">
+                  <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+                  <v-btn @click="step--">Cancel</v-btn>
+                  <v-btn color="primary" @click="assp = 2">Next</v-btn>
+                </v-stepper-content>
+
+                <v-stepper-step
+                  :complete="assp > 2"
+                  step="2"
+                >Have alternative funding and financing options been considered?</v-stepper-step>
+                <v-stepper-content step="2">
+                  <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+                  <v-btn @click="assp = 1">Previous</v-btn>
+                  <v-btn color="primary" @click="assp = 3">Next</v-btn>
+                </v-stepper-content>
+
+                <v-stepper-step
+                  :complete="assp > 3"
+                  step="3"
+                >Is there a need for Commonwealth funding?</v-stepper-step>
+                <v-stepper-content step="3">
+                  <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+                  <v-btn @click="assp = 2">Previous</v-btn>
+                  <v-btn color="primary" @click="assp = 4">Next</v-btn>
+                </v-stepper-content>
+
+                <v-stepper-step
+                  :complete="assp > 4"
+                  step="4"
+                >Does the delivery strategy provide confidence that the initiative benefits will be delivered?</v-stepper-step>
+                <v-stepper-content step="4">
+                  <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+                  <v-btn @click="assp = 3">Previous</v-btn>
+                  <v-btn color="primary" @click="assp = 5">Next</v-btn>
+                </v-stepper-content>
+
+                <v-stepper-step
+                  :complete="assp > 5"
+                  step="5"
+                >Does the project’s governance model provide confidence that claimed benefits will be delivered?</v-stepper-step>
+                <v-stepper-content step="5">
+                  <v-card color="grey lighten-1" class="mb-5" height="200px"></v-card>
+                  <v-btn @click="assp = 4">Previous</v-btn>
+                  <v-btn color="error" @click="assp = 5">Submit Proposal</v-btn>
+                </v-stepper-content>
+              </v-stepper>
+            </v-card-text>
           </v-card>
         </v-window-item>
       </v-window>
 
       <!-- Actions -->
       <v-divider></v-divider>
-      <v-card-actions color="white">
-        <v-btn v-if="step !== 1" @click="step--">Back</v-btn>
+      <v-card-actions color="white" v-if="step < 3">
+        <v-btn v-if="step === 2" @click="step--">Back</v-btn>
         <v-spacer></v-spacer>
-        <v-btn v-if="step === 1" @click="step++" color="primary">Agree and Continue</v-btn>
-        <v-btn v-if="step === 2" @click="step++" color="primary">Review and Finalise</v-btn>
-        <v-btn v-if="step === 3" color="error">Submit Proposal</v-btn>
+        <v-btn v-if="step === 1" @click="step++" color="info">Agree and Continue</v-btn>
+        <v-btn v-if="step === 2" @click="step++" color="primary">DELIVERABILITY ASSESSMENT</v-btn>
       </v-card-actions>
     </v-card>
   </div>
@@ -98,6 +147,8 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 })
 export default class Proposal extends Vue {
   @Prop({ default: 1 }) public step!: number;
+
+  @Prop({ default: 1 }) public assp!: number;
 
   get Crumbs() {
     return [
