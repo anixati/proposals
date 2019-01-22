@@ -28,7 +28,10 @@ module.exports = {
       { test: /\.js$/,loader: 'babel-loader'},
       { test: /\.tsx?$/,loader: 'ts-loader', exclude: /node_modules/,options: {appendTsSuffixTo: [/\.vue$/],}    },
       { test: /\.(png|jpg|gif|svg)$/,loader: 'file-loader', options: {name: '[name].[ext]?[hash]'}   },
-      { test: /\.scss$/,use: ['vue-style-loader','css-loader','sass-loader'] }
+      { test: /\.scss$/,use: ['vue-style-loader','css-loader','sass-loader'] },
+      { test: /\.css$/,loader: 'css-loader',options: {url: true,},},
+      { test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,use: [{loader: 'file-loader',options: {name: '[name].[ext]',outputPath: 'fonts/'}}]
+    }
     ]
   },
   resolve: {
