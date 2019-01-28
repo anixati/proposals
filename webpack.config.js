@@ -8,7 +8,7 @@ const fileCopier = require('copy-webpack-plugin')
 const buildClean = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: ['babel-polyfill', './src/main.ts'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].js'

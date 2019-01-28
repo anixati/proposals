@@ -1,3 +1,4 @@
+//import Es6Promise from 'es6-promise'
 import 'babel-polyfill'
 import Vue from 'vue';
 import Vuetify from 'vuetify'
@@ -15,14 +16,14 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#4D7288',
+    primary: '#009688',//'#4D7288',
     secondary: '#424242',
     accent: '#82B1FF',
     error: '#FF5252',
-    info: '#2196F3',
+    info: '#424242',
     success: '#4CAF50',
     warning: '#FFC107',
-    amber:'#4D7288'
+    amber:'#212121'
   },
   customProperties: true,
   iconfont: 'fa4',

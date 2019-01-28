@@ -1,21 +1,14 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <v-toolbar color="amber" dark app absolute clipped-left>
+      <v-toolbar color="info" dark app absolute clipped-left>
         <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">
           Agency&nbsp;
           <span class="font-weight-light">Portal</span>
         </span>
       </v-toolbar>
-
-      <v-navigation-drawer
-        clipped
-        v-model="drawer"
-        class="grey lighten-4"
-        absolute
-        app
-        :mini-variant="mini"
+      <v-navigation-drawer dark clipped  v-model="drawer" color="grey darken-3" absolute  app :mini-variant="mini"
       >
         <v-toolbar flat>
           <v-list>
@@ -36,25 +29,25 @@
             <span>Notifications</span>
           </v-tooltip>
         </v-toolbar>
-        <v-divider></v-divider>
+        <v-divider></v-divider> 
 
-        <v-list-tile v-for="item in items" :key="item.title" :to="item.link" avatar>
+        <v-list-tile v-for="item in items" :key="item.title" :to="item.link" ripple avatar>
           <v-list-tile-avatar>
-            <v-icon class="amber white--text">{{ item.icon }}</v-icon>
+            <v-icon class="teal white--text">{{ item.icon }}</v-icon>
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title class="white--text">{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-navigation-drawer>
 
-      <v-content>
-        <v-container fluid>
-          <router-view></router-view>
+      <v-content class="blue-grey lighten-5">
+        <v-container fluid >
+          <router-view class="blue-grey lighten-5"></router-view>
         </v-container>
       </v-content>
-      <v-footer height="auto" color="grey lighten-2" app>
-         <v-spacer></v-spacer><strong>&copy; 2019 - DIRD</strong>
+      <v-footer height="auto" color="amber" class="white--text" app>
+         <v-spacer></v-spacer><strong>&copy; 2019 - DIRD&nbsp;&nbsp;&nbsp;</strong>
       </v-footer>
     </v-app>
   </div>

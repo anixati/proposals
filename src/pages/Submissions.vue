@@ -1,15 +1,23 @@
 <template>
   <div>
-    <v-breadcrumbs :items="Crumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
-    </v-breadcrumbs>
+
+     <!-- Page header -->
+    <v-toolbar class="elevation-0 transparent">
+        <v-icon>local_play</v-icon>
+       <v-toolbar-title>Submissions</v-toolbar-title>
+      <v-spacer></v-spacer>
+       <v-btn to="/proposal" color="primary ripple">
+       <v-icon dark>assignment</v-icon>&nbsp;
+       New Submission
+       </v-btn>
+      
+    </v-toolbar>
+
+  
     <v-card>
       <v-toolbar card dense color="transparent">
-        <v-toolbar-title>
-          <h4>Submissions</h4>
-        </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn to="/proposal" small color="primary">New Submission</v-btn>
+       
         <v-btn icon>
           <v-icon>more_vert</v-icon>
         </v-btn>
@@ -40,7 +48,6 @@
         <v-divider></v-divider>
       </v-card-text>
       <v-card-actions>
-        <v-card-text>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</v-card-text>
       </v-card-actions>
     </v-card>
   </div>
@@ -68,7 +75,16 @@ export default class SubmissionList extends Vue {
     ];
   }
   get Crumbs() {
-    return [{ text: "Submissions", disabled: false, href: "submissions" }];
+    return [{ text: "Submissions", disabled: true, href: "/submissions" }];
   }
 }
 </script>
+<style scoped lang="scss">
+.parent {
+  flex-wrap: wrap;
+  border: 1px solid red;
+}
+.child {
+max-width:700px;
+}
+</style>

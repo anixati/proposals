@@ -1,8 +1,15 @@
 <template>
   <div>
-    <v-breadcrumbs :items="Crumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
-    </v-breadcrumbs>
+    <!-- Page header -->
+    <v-toolbar class="elevation-0 transparent">
+        <v-icon>dashboard</v-icon>
+       <v-toolbar-title>Dashboard</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-breadcrumbs :items="Crumbs">
+        <v-icon slot="divider">chevron_right</v-icon>
+      </v-breadcrumbs>
+    </v-toolbar>
+
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <!-- mini statistic start -->
@@ -71,14 +78,8 @@ import VPanel from "../components/VPanel.vue";
   }
 })
 export default class Dashboard extends Vue {
-
-
-
-
-get Crumbs() {
-    return [{ text: 'Dashboard',disabled: true,href: 'dashboard'}];
-}
-
-
+  get Crumbs() {
+    return [{ text: "Dashboard", disabled: true, href: "dashboard" }];
+  }
 }
 </script>
