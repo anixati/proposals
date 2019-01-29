@@ -1,14 +1,9 @@
 <template>
   <div>
     <!-- Page header -->
-    <v-toolbar class="elevation-0 transparent">
-        <v-icon>dashboard</v-icon>
-       <v-toolbar-title>Dashboard</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-breadcrumbs :items="Crumbs">
-        <v-icon slot="divider">chevron_right</v-icon>
-      </v-breadcrumbs>
-    </v-toolbar>
+    <title-panel icon="all_inbox" title="Dashboard">
+      <span class="caption">Information snapshot</span>
+    </title-panel>
 
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
@@ -69,13 +64,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import TitlePanel from "../components/TitlePanel.vue";
 import StatPanel from "../components/StatPanel.vue";
 import VPanel from "../components/VPanel.vue";
 @Component({
-  components: {
-    StatPanel,
-    VPanel
-  }
+  components: { TitlePanel, StatPanel, VPanel }
 })
 export default class Dashboard extends Vue {
   get Crumbs() {

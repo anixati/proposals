@@ -1,14 +1,16 @@
 <template>
   <div>
     <!-- Page header -->
-    <v-toolbar class="elevation-0 transparent">
-      <v-icon>local_play</v-icon>
-      <v-toolbar-title>Infrastructure Proposal for use by Proponents</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-breadcrumbs :items="Crumbs">
+    <title-panel icon="local_play" title="Infrastructure Proposal for use by Proponents">
+      <v-breadcrumbs :items="Crumbs" class="my-0 pa-2">
         <v-icon slot="divider">chevron_right</v-icon>
       </v-breadcrumbs>
-    </v-toolbar>
+
+      <v-btn slot="action" color="primary ripple">
+        <v-icon dark>save</v-icon>&nbsp;
+       Save
+      </v-btn>
+    </title-panel>
 
     <div>
       <!-- Steps -->
@@ -93,7 +95,6 @@
                               label="Project Name"
                               hint="Name of the project or description"
                               persistent-hint
-                              outline
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm6>
@@ -102,37 +103,30 @@
                               label="State/territories"
                               hint="States and territories of Australia"
                               persistent-hint
-                              outline
                             ></v-combobox>
                           </v-flex>
                           <v-flex xs12 sm6>
-                            <v-text-field
-                              label="City/Region"
-                              hint="Locality"
-                              persistent-hint
-                              outline
-                            ></v-text-field>
+                            <v-text-field label="City/Region" hint="Locality" persistent-hint></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm6>
                             <v-text-field
                               label="Contact Name"
                               hint="Name of Proponent Entity"
                               persistent-hint
-                              outline
                             ></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm6>
-                            <v-text-field label="Position" hint persistent-hint outline></v-text-field>
+                            <v-text-field label="Position" hint persistent-hint></v-text-field>
                           </v-flex>
 
                           <v-flex xs12 sm4>
-                            <v-text-field label="Phone" hint persistent-hint outline></v-text-field>
+                            <v-text-field label="Phone" hint persistent-hint></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm4>
-                            <v-text-field label="Mobile" hint persistent-hint outline></v-text-field>
+                            <v-text-field label="Mobile" hint persistent-hint></v-text-field>
                           </v-flex>
                           <v-flex xs12 sm4>
-                            <v-text-field label="Email" type="email" hint persistent-hint outline></v-text-field>
+                            <v-text-field label="Email" type="email" hint persistent-hint></v-text-field>
                           </v-flex>
 
                           <v-flex xs12 sm4>
@@ -147,7 +141,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Description of Project"   rows="12" outline></v-textarea>
+                            <v-textarea label="Description of Project" rows="12"></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
                             <v-card color="blue-grey darken-2" class="white--text">
@@ -159,6 +153,7 @@
                                     <li>Regional Freight Link</li>
                                     <li>Planning Works</li>
                                   </ul>
+                                  <p></p>
                                 </div>
                               </v-card-title>
                             </v-card>
@@ -168,7 +163,6 @@
                             <v-textarea
                               label="Infrastructure Investment Programme Funding Stream"
                               rows="6"
-                              outline
                             ></v-textarea>
                           </v-flex>
                         </v-layout>
@@ -301,7 +295,6 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="High level development and implementation program"
-                              outline
                               rows="3"
                             ></v-textarea>
                           </v-flex>
@@ -314,7 +307,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Confidentiality" rows="3" outline></v-textarea>
+                            <v-textarea label="Confidentiality" rows="3"></v-textarea>
                           </v-flex>
                         </v-layout>
                       </v-container>
@@ -362,7 +355,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Goal Statements" rows="12" outline></v-textarea>
+                            <v-textarea label="Goal Statements" rows="12"></v-textarea>
                           </v-flex>
                         </v-layout>
                       </v-container>
@@ -410,6 +403,7 @@
                                     <li>base identification and assessment of the problems on empirical observations and evidence. Where appropriate, this evidence should be attached to the submission; and</li>
                                     <li>consider how the problems will change over time, including how it is likely to impact or be impacted by different scenarios.</li>
                                   </ul>
+                                  <p></p>
                                   <p>This section should include reference to how the project addresses deficiencies identified in the Infrastructure Australia National Infrastructure Audit.</p>
                                 </div>
                               </v-card-text>
@@ -418,8 +412,7 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="Identification of current and future problems"
-                              rows="21"
-                              outline
+                              rows="22"
                             ></v-textarea>
                           </v-flex>
                         </v-layout>
@@ -467,7 +460,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Problem analysis" rows="8" outline></v-textarea>
+                            <v-textarea label="Problem analysis" rows="9"></v-textarea>
                           </v-flex>
 
                           <v-flex xs12 sm4>
@@ -483,7 +476,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Problem Prioritisation" rows="6" outline></v-textarea>
+                            <v-textarea label="Problem Prioritisation" rows="6"></v-textarea>
                           </v-flex>
                         </v-layout>
                       </v-container>
@@ -524,7 +517,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm12>
@@ -533,7 +525,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm12>
@@ -542,7 +533,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm12>
@@ -551,7 +541,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm12>
@@ -560,7 +549,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm12>
@@ -569,7 +557,6 @@
                               rows="3"
                               hint="Short description of the option, and how it is likely to achieve the goals/objectives."
                               persistent-hint="true"
-                              outline
                             ></v-textarea>
                           </v-flex>
                         </v-layout>
@@ -629,7 +616,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Cost Estimation" rows="58" outline></v-textarea>
+                            <v-textarea label="Cost Estimation" rows="58"></v-textarea>
                           </v-flex>
 
                           <v-flex xs12 sm4>
@@ -653,7 +640,7 @@
                             </v-card>
                           </v-flex>
                           <v-flex xs12 sm8>
-                            <v-textarea label="Cost Benefit Analysis" rows="22" outline></v-textarea>
+                            <v-textarea label="Cost Benefit Analysis" rows="22"></v-textarea>
                           </v-flex>
                         </v-layout>
                       </v-container>
@@ -690,8 +677,7 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="1. Is the risk being managed appropriately?"
-                              rows="20"
-                              outline
+                              rows="30"
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
@@ -731,8 +717,7 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="2. Have alternative funding and financing options been considered?"
-                              rows="6"
-                              outline
+                              rows="19"
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
@@ -756,8 +741,7 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="3. Is there a need for Commonwealth funding?"
-                              rows="12"
-                              outline
+                              rows="15"
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
@@ -780,8 +764,7 @@
                           <v-flex xs12 sm8>
                             <v-textarea
                               label="4. Does the delivery strategy provide confidence that the initiative benefits will be delivered?"
-                              rows="12"
-                              outline
+                              rows="15"
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
@@ -806,7 +789,6 @@
                             <v-textarea
                               label="5. Does the project’s governance model provide confidence that claimed benefits will be delivered?"
                               rows="8"
-                              outline
                             ></v-textarea>
                           </v-flex>
                           <v-flex xs12 sm4>
@@ -823,7 +805,6 @@
                               </v-card-text>
                             </v-card>
                           </v-flex>
-
                         </v-layout>
                       </v-container>
                     </v-form>
@@ -853,9 +834,9 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-
+import TitlePanel from "../components/TitlePanel.vue";
 @Component({
-  components: {}
+  components: {TitlePanel}
 })
 export default class Proposal extends Vue {
   @Prop({ default: 1 }) public step!: number;

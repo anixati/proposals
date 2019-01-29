@@ -1,20 +1,15 @@
 <template>
   <div>
+    <!-- Page header -->
+    <title-panel icon="local_play" title="Submissions">
+      <span class="caption">list of differnt types of submitted applications</span>
+       <v-btn slot="action" to="/proposal" color="primary ripple">
+          <v-icon dark>assignment</v-icon>&nbsp;
+          New Submission
+        </v-btn>
+    </title-panel>
 
-     <!-- Page header -->
-    <v-toolbar class="elevation-0 transparent">
-        <v-icon>local_play</v-icon>
-       <v-toolbar-title>Submissions</v-toolbar-title>
-      <v-spacer></v-spacer>
-       <v-btn to="/proposal" color="primary ripple">
-       <v-icon dark>assignment</v-icon>&nbsp;
-       New Submission
-       </v-btn>
-      
-    </v-toolbar>
-
-  
-    <v-card>
+    <v-card class="ma-5">
       <v-toolbar card dense color="transparent">
         <v-spacer></v-spacer>
        
@@ -25,7 +20,7 @@
       <v-divider></v-divider>
       <v-card-text class="pa-1">
         <template>
-          <v-data-table :headers="Cols" :items="Submissions" class="elevation-1">
+          <v-data-table :headers="Cols" :items="Submissions" class="elevation-1 purple--text">
             <template slot="items" slot-scope="props">
               <td>{{ props.item.form }}</td>
               <td>{{ props.item.status }}</td>
@@ -47,8 +42,7 @@
         </template>
         <v-divider></v-divider>
       </v-card-text>
-      <v-card-actions>
-      </v-card-actions>
+      <v-card-actions></v-card-actions>
     </v-card>
   </div>
 </template>
@@ -56,12 +50,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { Submissions } from "../mocks/submissions";
-
+import TitlePanel from "../components/TitlePanel.vue";
 @Component({
-  components: {}
+  components: {TitlePanel}
 })
 export default class SubmissionList extends Vue {
-
   get Submissions() {
     return Submissions;
   }
@@ -85,6 +78,6 @@ export default class SubmissionList extends Vue {
   border: 1px solid red;
 }
 .child {
-max-width:700px;
+  max-width: 700px;
 }
 </style>

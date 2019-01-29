@@ -16,14 +16,15 @@ Vue.config.productionTip = false;
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#009688',//'#4D7288',
+    primary:'#022C5E', //'#009688',//'#4D7288',
     secondary: '#424242',
     accent: '#82B1FF',
     error: '#FF5252',
     info: '#424242',
     success: '#4CAF50',
     warning: '#FFC107',
-    amber:'#212121'
+    purple:'#022C5E',
+    amber:'#212121',
   },
   customProperties: true,
   iconfont: 'fa4',

@@ -1,53 +1,61 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <v-toolbar color="info" dark app absolute clipped-left>
+      <v-toolbar color="purple" dark app absolute clipped-left>
         <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">
           Agency&nbsp;
           <span class="font-weight-light">Portal</span>
         </span>
+        <v-spacer></v-spacer>
+        <img src="logo.png" alt="Vuetify">
       </v-toolbar>
-      <v-navigation-drawer dark clipped  v-model="drawer" color="grey darken-3" absolute  app :mini-variant="mini"
+      <v-navigation-drawer
+        clipped
+        v-model="drawer"
+        color="purple"
+        absolute
+        app
+        :mini-variant="mini"
       >
-        <v-toolbar flat>
-          <v-list>
-            <v-list-tile>
-              <v-list-tile-title class="title"></v-list-tile-title>
-            </v-list-tile>
-          </v-list>
-          <v-tooltip bottom>
-            <v-btn icon slot="activator">
+        <v-toolbar dense flat>
+          <v-spacer></v-spacer>
+          <v-toolbar-items class="hidden-sm-and-down">
+            <v-divider vertical></v-divider>
+            <v-btn icon flat>
+              <v-icon color="purple">apps</v-icon>
+            </v-btn>
+            <v-divider vertical></v-divider>
+            <v-btn icon flat>
               <v-icon color="orange darken-2">grade</v-icon>
             </v-btn>
-            <span>Favourites</span>
-          </v-tooltip>
-          <v-tooltip bottom>
-            <v-btn slot="activator" icon>
-              <v-icon>notifications</v-icon>
+            <v-divider vertical></v-divider>
+            <v-btn icon flat>
+              <v-icon color="blue">notifications</v-icon>
             </v-btn>
-            <span>Notifications</span>
-          </v-tooltip>
+            <v-divider vertical></v-divider>
+          </v-toolbar-items>
         </v-toolbar>
-        <v-divider></v-divider> 
+        <v-divider></v-divider>
 
         <v-list-tile v-for="item in items" :key="item.title" :to="item.link" ripple avatar>
           <v-list-tile-avatar>
-            <v-icon class="teal white--text">{{ item.icon }}</v-icon>
+            <v-icon class="purple white--text">{{ item.icon }}</v-icon>
           </v-list-tile-avatar>
           <v-list-tile-content>
-            <v-list-tile-title class="white--text">{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title class="purple--text">{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-navigation-drawer>
 
-      <v-content class="blue-grey lighten-5">
-        <v-container fluid >
-          <router-view class="blue-grey lighten-5"></router-view>
+      <v-content class="blue-grey lighten-4">
+        <v-container fluid>
+          <router-view class="blue-grey lighten-4"></router-view>
         </v-container>
       </v-content>
-      <v-footer height="auto" color="amber" class="white--text" app>
-         <v-spacer></v-spacer><strong>&copy; 2019 - DIRD&nbsp;&nbsp;&nbsp;</strong>
+      <v-footer height="auto" color="amber darken-1" class="white--text" app>
+        <v-spacer></v-spacer>
+        <strong>&copy; 2019 - DIRD&nbsp;&nbsp;&nbsp;</strong>
       </v-footer>
     </v-app>
   </div>
@@ -74,5 +82,34 @@ export default class App extends Vue {
   ];
 }
 </script>
+
 <style lang="scss">
+.v-btn-group {
+  border-radius: 2px;
+  display: inline-flex;
+  .theme--dark & {
+    background: #424242;
+  }
+  .theme--light & {
+    background: #fff;
+  }
+  .v-btn {
+    border-radius: 0;
+    justify-content: center;
+    margin: 0;
+    min-width: auto;
+    opacity: 0.4;
+    padding: 0 8px;
+    width: auto;
+    &:not(:last-child) {
+      border-right: 1px solid transparent;
+    }
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+}
 </style>
