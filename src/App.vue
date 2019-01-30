@@ -4,7 +4,7 @@
       <v-toolbar color="purple" dark app absolute clipped-left>
         <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
         <span class="title ml-3 mr-5">
-          Agency&nbsp;
+          Infrastructure&nbsp;Investment&nbsp;
           <span class="font-weight-light">Portal</span>
         </span>
         <v-spacer></v-spacer>
@@ -55,7 +55,7 @@
       </v-content>
       <v-footer height="auto" color="amber darken-1" class="white--text" app>
         <v-spacer></v-spacer>
-        <strong>&copy; 2019 - DIRD&nbsp;&nbsp;&nbsp;</strong>
+        <strong>&copy; 2019 - DIRDC&nbsp;&nbsp;&nbsp;</strong>
       </v-footer>
     </v-app>
   </div>
